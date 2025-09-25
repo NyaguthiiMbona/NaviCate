@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build", 
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18", 
     "@types/react-dom": "^18",
     "typescript": "^5",
     "eslint": "^8",
