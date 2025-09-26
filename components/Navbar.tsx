@@ -15,90 +15,66 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-lg border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold text-blue-600 hover:text-blue-700">
-              NaviCate
-            </a>
-          </div>
+    <nav className="bg-white shadow-md p-4 sticky top-0 z-50">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <a href="/" className="text-2xl font-bold text-blue-600">NaviCate</a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <a href="/" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
-                Home
-              </a>
-              <a href="/blog" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
-                Blog
-              </a>
-              <a href="/pricing" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
-                Pricing
-              </a>
-            </div>
-          </div>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-4 items-center">
+          <a href="/" className="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="/blog" className="text-gray-700 hover:text-blue-600">Blog</a>
+          <a href="/pricing" className="text-gray-700 hover:text-blue-600">Pricing</a>
 
-          {/* Auth Section - Desktop */}
-          <div className="hidden md:block">
-            {!loading && !user ? (
-              <button
-                onClick={() => setAuthModalOpen(true)}
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-              >
-                Login / Register
-              </button>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <span className="text-gray-700 text-sm">
-                  Welcome, {user?.email?.split('@')[0]}
-                </span>
-                <button
-                  onClick={handleLogout}
-                  className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm"
-                >
-                  Logout
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Single Auth Section - Desktop */}
+          {!loading && !user ? (
             <button
-              onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 p-2"
+              onClick={() => setAuthModalOpen(true)}
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              Login / Register
             </button>
-          </div>
+          ) : (
+            <div className="flex items-center space-x-2">
+              <span className="text-gray-700">Welcome, {user?.email?.split('@')[0]}</span>
+              <button 
+                onClick={handleLogout} 
+                className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm"
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Mobile menu button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-gray-700 hover:text-blue-600 p-2"
+          >
+            {isMobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            )}
+          </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <a href="/" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-sm font-medium">
-              Home
-            </a>
-            <a href="/blog" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-sm font-medium">
-              Blog
-            </a>
-            <a href="/pricing" className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-sm font-medium">
-              Pricing
-            </a>
-          </div>
-          
-          {/* Mobile Auth Section */}
-          <div className="px-2 pb-3 border-t border-gray-200 pt-4">
+        <div className="md:hidden bg-white py-2 shadow-inner">
+          <div className="flex flex-col items-center space-y-2">
+            <a href="/" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="/blog" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Blog</a>
+            <a href="/pricing" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Pricing</a>
+
+            {/* Mobile Auth Section */}
             {!loading && !user ? (
               <button
                 onClick={() => {
@@ -110,10 +86,8 @@ export default function Navbar() {
                 Login / Register
               </button>
             ) : (
-              <div className="space-y-2">
-                <p className="text-gray-700 text-sm px-3">
-                  Welcome, {user?.email?.split('@')[0]}
-                </p>
+              <div className="w-full text-center space-y-2">
+                <span className="block text-gray-700">Welcome, {user?.email?.split('@')[0]}</span>
                 <button
                   onClick={() => {
                     handleLogout();
@@ -130,9 +104,9 @@ export default function Navbar() {
       )}
 
       {/* Auth Modal */}
-      <AuthModal 
-        isOpen={isAuthModalOpen} 
-        onClose={() => setAuthModalOpen(false)} 
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setAuthModalOpen(false)}
       />
     </nav>
   );
