@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { Search, Filter, Briefcase, TrendingUp, Users, ArrowRight, Star, Clock, MapPin } from 'lucide-react';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -89,11 +88,10 @@ export default function Home() {
           <div className="bg-white rounded-xl p-6 shadow-2xl max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
               <div className="md:col-span-2 relative">
-                <Search className="absolute left-3 top-3 text-gray-400" size={20} />
                 <input
                   type="text"
                   placeholder="Search career pivots (e.g., 'teacher to tech')"
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -125,8 +123,7 @@ export default function Home() {
             </div>
             
             <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
-              <Search size={20} />
-              Find My Perfect Pivot
+              🔍 Find My Perfect Pivot
             </button>
           </div>
         </div>
@@ -150,7 +147,7 @@ export default function Home() {
                 </div>
                 <p className="text-gray-600 mb-4">{level.description}</p>
                 <div className="flex items-center text-sm text-gray-500">
-                  <Clock size={16} className="mr-2" />
+                  <span className="mr-2">⏰</span>
                   {index === 0 ? '3-6 months' : index === 1 ? '6-12 months' : '12+ months'}
                 </div>
               </div>
@@ -165,7 +162,7 @@ export default function Home() {
           <div className="flex justify-between items-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">Featured Career Pivots</h2>
             <Link href="/pivots" className="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2">
-              View All Pivots <ArrowRight size={20} />
+              View All Pivots →
             </Link>
           </div>
 
@@ -181,7 +178,7 @@ export default function Home() {
                     {pivot.complexity}
                   </span>
                   <div className="flex items-center text-yellow-500">
-                    <Star size={16} fill="currentColor" />
+                    <span>⭐</span>
                     <span className="text-sm text-gray-600 ml-1">{pivot.rating}</span>
                   </div>
                 </div>
@@ -190,11 +187,11 @@ export default function Home() {
                 
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center text-sm text-gray-600">
-                    <Clock size={14} className="mr-2" />
+                    <span className="mr-2">⏰</span>
                     {pivot.timeframe}
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
-                    <TrendingUp size={14} className="mr-2" />
+                    <span className="mr-2">📈</span>
                     {pivot.salary}
                   </div>
                   <div className="flex items-center text-sm">
@@ -239,7 +236,7 @@ export default function Home() {
                 className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center group border border-gray-100"
               >
                 <div className="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                  <Briefcase className="text-blue-600" size={24} />
+                  <span className="text-blue-600 text-2xl">💼</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">{category.name}</h3>
                 <p className="text-sm text-gray-600">{category.count} pivots</p>
@@ -266,7 +263,7 @@ export default function Home() {
                   <span className="font-medium text-gray-900 group-hover:text-blue-600">
                     {pivot}
                   </span>
-                  <TrendingUp className="text-green-500 group-hover:text-blue-600" size={20} />
+                  <span className="text-green-500 group-hover:text-blue-600">📈</span>
                 </Link>
               ))}
             </div>
@@ -342,4 +339,3 @@ export default function Home() {
     </div>
   );
 }
-
