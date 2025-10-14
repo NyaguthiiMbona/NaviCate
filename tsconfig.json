@@ -1,35 +1,30 @@
 {
   "compilerOptions": {
-    /* ✅ Core compilation settings */
-    "target": "esnext",
-    "module": "esnext",
-    "jsx": "preserve",
-
-    /* ✅ TypeScript safety and compatibility */
-    "strict": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-
-    /* ✅ Module resolution & imports */
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-
-    /* ✅ Next.js alias support */
+    "jsx": "preserve",
+    "incremental": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
-
-  /* ✅ Make sure TypeScript includes all app files */
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "types/**/*.d.ts"
+    "types"
   ],
   "exclude": ["node_modules"]
 }
