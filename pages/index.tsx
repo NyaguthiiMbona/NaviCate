@@ -79,8 +79,7 @@ export default function Home() {
               Navigate Your Perfect Career Pivot
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Discover data-driven career transitions tailored for the Kenyan job market. 
-              From simple skill upgrades to complete career transformations.
+               Unlock data-driven career transitions designed for a global job market powered by data and insight.
             </p>
           </div>
 
@@ -278,7 +277,7 @@ export default function Home() {
             Ready to Start Your Career Transformation?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join thousands of Kenyans who've successfully pivoted their careers with NaviCate
+            Trusted by professionals across industries to navigate change with confidence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -339,3 +338,4 @@ export default function Home() {
     </div>
   );
 }
+
