@@ -1,4 +1,5 @@
 // Fixed components/Navbar.tsx - Removes duplicate login/register issue
+import Link from "next/link";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { signOut } from "firebase/auth";
@@ -22,9 +23,9 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-4 items-center">
-          <a href="/" className="text-gray-700 hover:text-blue-600">Home</a>
-          <a href="/blog" className="text-gray-700 hover:text-blue-600">Blog</a>
-          <a href="/pricing" className="text-gray-700 hover:text-blue-600">Pricing</a>
+          <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
+          <Link href="/blog" className="text-gray-700 hover:text-blue-600">Blog</Link>
+          <Link href="/pricing" className="text-gray-700 hover:text-blue-600">Pricing</Link>
 
           {/* Single Auth Section - Desktop */}
           {!loading && !user ? (
@@ -70,9 +71,9 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white py-2 shadow-inner">
           <div className="flex flex-col items-center space-y-2">
-            <a href="/" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Home</a>
-            <a href="/blog" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Blog</a>
-            <a href="/pricing" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Pricing</a>
+            <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
+            <Link href="/blog" className="text-gray-700 hover:text-blue-600">Blog</Link>
+            <Link href="/pricing" className="text-gray-700 hover:text-blue-600">Pricing</Link>
 
             {/* Mobile Auth Section */}
             {!loading && !user ? (
@@ -111,3 +112,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
