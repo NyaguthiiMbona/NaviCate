@@ -1,6 +1,6 @@
-// Fixed components/Navbar.tsx - Removes duplicate login/register issue
-import Link from "next/link";
+// Fixed components/Navbar.tsx - Adds Next.js routing
 import { useState } from "react";
+import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
@@ -19,7 +19,9 @@ export default function Navbar() {
     <nav className="bg-white shadow-md p-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <a href="/" className="text-2xl font-bold text-blue-600">NaviCate</a>
+        <Link href="/" className="text-2xl font-bold text-blue-600">
+          NaviCate
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-4 items-center">
@@ -71,9 +73,9 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white py-2 shadow-inner">
           <div className="flex flex-col items-center space-y-2">
-            <Link href="/" className="text-gray-700 hover:text-blue-600">Home</Link>
-            <Link href="/blog" className="text-gray-700 hover:text-blue-600">Blog</Link>
-            <Link href="/pricing" className="text-gray-700 hover:text-blue-600">Pricing</Link>
+            <Link href="/" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Home</Link>
+            <Link href="/blog" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Blog</Link>
+            <Link href="/pricing" className="block w-full text-center py-2 text-gray-700 hover:text-blue-600">Pricing</Link>
 
             {/* Mobile Auth Section */}
             {!loading && !user ? (
@@ -112,4 +114,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
