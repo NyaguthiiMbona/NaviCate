@@ -1,0 +1,71 @@
+// pages/pivots.tsx
+import Link from "next/link";
+import Head from "next/head";
+
+const pivotRoles = [
+  "accountant", "auditor", "admin-assistant", "secretary", "office-manager", "bookkeeper",
+  "data-entry-clerk", "receptionist", "executive-assistant", "payroll-specialist",
+  "hr-officer", "recruiter", "hr-assistant", "training-coordinator", "benefits-administrator",
+  "talent-acquisition", "hr-generalist", "employee-relations", "paralegal", "law-clerk",
+  "legal-assistant", "compliance-officer", "contract-administrator", "legal-secretary",
+  "teacher", "tutor", "training-specialist", "instructional-designer", "academic-advisor",
+  "librarian", "education-coordinator", "curriculum-developer", "customer-service",
+  "call-center", "sales-representative", "account-manager", "customer-success",
+  "sales-coordinator", "business-development", "retail-manager", "sales-assistant",
+  "client-relations", "bank-teller", "financial-analyst", "loan-officer", "investment-advisor",
+  "credit-analyst", "tax-preparer", "budget-analyst", "financial-planner", "nurse",
+  "medical-assistant", "social-worker", "healthcare-admin", "pharmacy-tech",
+  "medical-secretary", "patient-coordinator", "health-educator", "it-support",
+  "help-desk", "data-analyst", "system-admin", "network-tech", "software-tester",
+  "marketing-assistant", "content-writer", "social-media", "graphic-designer",
+  "pr-coordinator", "brand-manager", "operations-manager", "supply-chain",
+  "logistics-coordinator", "procurement", "inventory-manager", "cashier",
+  "store-manager", "hotel-manager", "restaurant-manager", "event-coordinator"
+];
+
+const formatRoleName = (role: string) =>
+  role.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+
+export default function PivotsPage() {
+  return (
+    <>
+      <Head>
+        <title>Explore Career Pivots | NaviCate</title>
+        <meta
+          name="description"
+          content="Explore 80+ data-driven career pivots and discover your next professional opportunity with NaviCate."
+        />
+      </Head>
+
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-10 px-4">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">Explore All Career Pivots</h1>
+          <p className="text-gray-700 text-lg">
+            Browse 80+ future-ready job transitions and discover your next career move.
+          </p>
+        </div>
+
+        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 max-w-6xl mx-auto">
+          {pivotRoles.map(role => (
+            <Link
+              key={role}
+              href={`/pivot/${role}`}
+              className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow p-3 text-center text-sm font-medium text-gray-700 hover:text-blue-600"
+            >
+              {formatRoleName(role)}
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/"
+            className="text-blue-600 hover:underline text-sm"
+          >
+            ← Back to Home
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+}
